@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <h2>Land Survey System </h2>
+
+<body>
+<form action = "" method = "get">
+    <label for="location">Location: </label>
+    <input id="location"
+           type="text"
+           name="location"
+    ><br>
+    <label for="comment">Comment: </label>
+    <input id="comment" type="text" name="comment"><br>
+
+    <input type="file" name="Choose file"><br>
+
+    <button type="submit">Upload</button>
+</form>
+
+<table>
+    <tr>
+        <th>LOCATION</th>
+        <th>DATE</th>
+        <th>COMMENT</th>
+        <th>MEDIA</th>
+    </tr>
+    {% for item in query_set %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.location }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.Comment }}</td>
+        <td>{{ item.media }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
