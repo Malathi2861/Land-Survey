@@ -20,6 +20,6 @@ from django.conf.urls.static import static
 from survey_details import views
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path('survey_details/', views.home_view, name='survey_details'),
+    path('admin/', admin.site.urls),
+    path('', views.home_view, name='survey_details'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
