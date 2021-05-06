@@ -3,7 +3,8 @@
     <h2>Land Survey System </h2>
 
 <body>
-<form action = "" method = "get">
+<form method = "POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <label for="location">Location: </label>
     <input id="location"
            type="text"
@@ -11,12 +12,19 @@
     ><br>
     <label for="comment">Comment: </label>
     <input id="comment" type="text" name="comment"><br>
-
-    <input type="file" name="Choose file"><br>
+    <input type="file" name="myfile"><br>
 
     <button type="submit">Upload</button>
 </form>
+<!-- <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile"><br>
 
+    <button type="submit">Upload</button>
+</form> -->
+{% if uploaded_file_url %}
+<p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+{% endif %}
 <table>
     <tr>
         <th>LOCATION</th>
